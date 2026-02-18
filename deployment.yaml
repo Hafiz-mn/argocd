@@ -1,9 +1,9 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
- name: nginx-deployment
+ name: Crud-Deployment
  labels:
-   app: nginx
+   app: crud
 spec:
  replicas: 5
  selector:
@@ -15,10 +15,17 @@ spec:
        app: nginx
    spec:
      containers:
-     - name: nginx
-       image: nginx:1.14.2
+     - name: frontend
+       image: public.ecr.aws/w0g4t3k7/mypub:frontend
        ports:
        - containerPort: 80
+
+      containers:
+     - name: backend
+       image: public.ecr.aws/w0g4t3k7/mypub:backend
+       ports:
+       - containerPort: 8080
+
 
 
 
