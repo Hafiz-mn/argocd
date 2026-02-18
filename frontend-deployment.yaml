@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
- name: Deployment-Frontend
+ name: frontend
  labels:
    app: Frontend
 spec:
@@ -19,6 +19,7 @@ spec:
        image: public.ecr.aws/w0g4t3k7/mypub:frontend
        ports:
        - containerPort: 80
+
 
 
 
