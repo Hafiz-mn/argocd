@@ -1,28 +1,31 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Rollout
 metadata:
- name: backend
- labels:
-   app: backend
+  name: backend
+  labels:
+    app: backend
 spec:
- replicas: 1
+  replicas: 1
   strategy:
     canary:
       steps:
         - setWeight: 20
-        - pause: { duration: 30s }
+        - pause: 
+            duration: 30s
         - setWeight: 50
-        - pause: { duration: 30s }
- selector:
-   matchLabels:
-     app: backend
- template:
-   metadata:
-     labels:
-       app: backend
-   spec:
+        - pause: 
+            duration: 30s
+  selector:
+    matchLabels:
+      app: backend
+  template:
+    metadata:
+      labels:
+        app: backend
+    spec:
       containers:
-      - name: backend
-        image: public.ecr.aws/w0g4t3k7/mypub:backend
-        ports:
-        - containerPort: 8080
+        - name: backend
+          image: public.ecr.aws/w0g4t3k7/mypub:backend
+          ports:
+            - containerPort: 8080
+
