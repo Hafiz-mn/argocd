@@ -5,7 +5,7 @@ metadata:
  labels:
    app: Frontend
 spec:
- replicas: 4
+ replicas: 0
  strategy:
     canary:
       steps:
@@ -26,6 +26,7 @@ spec:
        image: public.ecr.aws/w0g4t3k7/mypub:frontend-v2
        ports:
        - containerPort: 80
+
 
 
 
