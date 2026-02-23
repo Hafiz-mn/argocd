@@ -5,7 +5,7 @@ metadata:
   labels:
     app: backend
 spec:
-  replicas: 0
+  replicas: 5
   strategy:
     canary:
       steps:
